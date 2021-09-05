@@ -2,7 +2,7 @@
   <div id="login-page">
     <GlobalHeader/>
     <GlobalMessage/>
-
+    
     <!-- メインエリア -->
     <main class="container">
       <p class="h5 mb-4">ログイン</p>
