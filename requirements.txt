@@ -1,8 +1,8 @@
 Django==3.2.7
 djangorestframework==3.12.4
 djangorestframework-simplejwt==4.8.0
+django-cors-headers==3.8.0
 django-bootstrap4==3.0.1
 django-allauth==0.43.0
 pillow==8.3.2
-djoser==2.1.0
 dj-rest-auth==2.1.2
