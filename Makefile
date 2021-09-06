@@ -6,3 +6,6 @@ install:
 
 migrate:
 	python manage.py migrate
+
+app:
+	python manage.py startapp $(APP_NAME)

@@ -18,7 +18,7 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 env = environ.Env()
-env.read_env('.env')
+env.read_env(os.path.join(BASE_DIR, '.env'))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -55,7 +55,7 @@ INSTALLED_APPS = [
 
     # My applications
     'users.apps.UsersConfig',
-    
+    'orchestra.apps.OrchestraConfig',
 ]
 
 SITE_ID = 1
