@@ -73,3 +73,7 @@ class Orchestra(models.Model):
 
     def get_full_name_kana(self):
         return self.orchestra_name_kana
+
+    def __str__(self):
+        return self.orchestra_name
+    

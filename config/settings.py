@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     # My applications
     'users.apps.UsersConfig',
     'orchestra.apps.OrchestraConfig',
+    'event.apps.EventConfig',
 ]
 
 SITE_ID = 1
