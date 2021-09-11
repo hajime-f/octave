@@ -1,22 +1,9 @@
-import Vue from 'vue'
-
-// BootstrapVue
-import BootstrapVue from 'bootstrap-vue'
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-vue/dist/bootstrap-vue.css'
-
+import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import Vuetify from 'vuetify'
+import axios from 'axios'
 
-Vue.config.productionTip = process.env.NODE_ENV === 'production'
+axios.defaults.baseURL = 'http://127.0.0.1:8000'
 
-Vue.use(BootstrapVue)
-Vue.use(Vuetify)
-
-new Vue({
-  router,
-  store,
-  render: h => h(App),
-}).$mount('#app')
+createApp(App).use(store).use(router).mount('#app')
