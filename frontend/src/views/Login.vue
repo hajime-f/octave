@@ -20,6 +20,11 @@
         <div>
           <button type="button" @click="login()">ログイン</button>
         </div>
+
+        <div class="notification is-danger" v-if="errors.length">
+          <p v-for="error in errors" v-bind:key="error">{{ error }}</p>
+        </div>
+        
       </form>
     </template>
   </div>
@@ -31,7 +36,8 @@ export default {
     data() {
         return {
             email: "",
-            password: ""
+            password: "",
+            errors: []
         }
     },
     methods: {
@@ -48,9 +54,9 @@ export default {
                 axios.defaults.headers.common["Authorization"] = "Token " + token
                 localStorage.setItem("token", token)
                 this.$router.push('/')
-            });
-            this.email = "";
-            this.password = "";
+            }).catch(error => {
+                this.errors.push("メールアドレスまたはパスワードが間違っています。")
+            })
         },
         logout() {
             axios.post(
