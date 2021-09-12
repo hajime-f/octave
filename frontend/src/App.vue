@@ -1,5 +1,5 @@
 <template>
-  <div id="wrapper">
+  <header id="wrapper">
 
     <!-- ヘッダーナビゲーション -->
     <nav class="navbar">
@@ -76,32 +76,29 @@
       </div>
       
     </nav>
-  </div>
-  
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link> |
-    <router-link to="/login">Login</router-link>
+  </header>
   
   <router-view/>
 </template>
 
 <script>
-  import axios from 'axios'
+import axios from 'axios'
 
-  export default {
+export default {
     name: 'App',
     beforeCreate() {
-      this.$store.commit('initializeStore')
+        this.$store.commit('initializeStore')
+        
+        const token = this.$store.state.token
+        
+        if (token) {
+            axios.defaults.headers.common['Authorization'] = "Token " + token
+        } else {
+            axios.defaults.headers.common['Authorization'] = ""
+        }
+    },
+}
 
-      const token = this.$store.state.token
-
-      if (token) {
-        axios.defaults.headers.common['Authorization'] = "Token " + token
-      } else {
-        axios.defaults.headers.common['Authorization'] = ""
-      }
-    }
-  }
 </script>
 
 <style lang="scss">
