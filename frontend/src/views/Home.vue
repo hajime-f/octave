@@ -17,12 +17,6 @@
 </template>
 
 <script>
-export default {
-    mounted: function() {
-        document.title = 'Octave | 楽団の管理をもっと簡単に'
-        document.querySelector("meta[name='description']").setAttribute('content', "Octave | 楽団の管理をもっと簡単に")
-    }
-}
 </script>
 
 <style lang="scss" scoped>
