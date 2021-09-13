@@ -3,7 +3,7 @@
     <template v-if="$store.state.isAuthenticated">
       <form>
         <div>
-          <button type="button" @click="logout()">ログアウト</button>
+          <button type="button" @click="logout">ログアウト</button>
         </div>
       </form>
     </template>
@@ -29,12 +29,12 @@
                 <input class="input is-midium" placeholder="Password" type="password" v-model="password">
               </div>
             </div>
-            <div class="is-danger" v-if="errors.length">
-              <p v-for="error in errors" v-bind:key="error">{{ error }}</p>
+            <div class="is-danger" v-if="error">
+              <p v-bind:key="error">{{ error }}</p>
             </div>
             
             <div class="is-block">
-              <button class="button is-link is-midium is-fullwidth" type="button" @click="login()">ログイン</button>
+              <button class="button is-link is-midium is-fullwidth" type="button" @click="login">ログイン</button>
             </div>
 
             <div class="is-block">
@@ -72,7 +72,7 @@ export default {
         return {
             email: "",
             password: "",
-            errors: []
+            error: ""
         }
     },
     methods: {
@@ -90,7 +90,7 @@ export default {
                 localStorage.setItem("token", token)
                 this.$router.push('/')
             }).catch(error => {
-                this.errors.push("メールアドレスまたはパスワードが間違っています。")
+                this.error = "メールアドレスまたはパスワードが間違っています。"
             })
         },
         logout() {
